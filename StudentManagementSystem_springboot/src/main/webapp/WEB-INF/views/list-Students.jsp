@@ -28,13 +28,14 @@
 
 		<!-- Add a search form -->
 
-		<form action="/StudentManagementSystem/student/search" class="form-inline">
+		<form action="/StudentManagementSystem/student/search"
+			class="form-inline">
 
 			<!-- Add a button -->
 			<a href="/StudentManagementSystem/student/showFormForAdd"
-				class="btn btn-primary btn-sm mb-3"> Add Student </a> 
-			<a href="/StudentManagementSystem/logout" 
-					class="btn btn-primary btn-sm mb-3 mx-auto"> Logout </a> 
+				class="btn btn-primary btn-sm mb-3"> Add Student </a> <a
+				href="/StudentManagementSystem/logout"
+				class="btn btn-primary btn-sm mb-3 mx-auto"> Logout </a>
 
 
 
@@ -43,16 +44,18 @@
 		<table class="table table-bordered table-striped">
 			<thead class="thead-dark">
 				<tr>
+					<th>Student Id</th>
 					<th>Name</th>
 					<th>Department</th>
 					<th>Country</th>
 					<th>Action</th>
 				</tr>
 			</thead>
-
+			<%!int i = 1;%>
 			<tbody>
 				<c:forEach items="${Students}" var="tempStudent">
 					<tr>
+						<td><%=i%> <%i++;%></td>
 						<td><c:out value="${tempStudent.name}" /></td>
 						<td><c:out value="${tempStudent.department}" /></td>
 						<td><c:out value="${tempStudent.country}" /></td>
@@ -60,7 +63,8 @@
 							<!-- Add "update" button/link --> <a
 							href="/StudentManagementSystem/student/showFormForUpdate?studentId=${tempStudent.id}"
 							class="btn btn-info btn-sm"> Update </a> <!-- Add "delete" button/link -->
-							<a href="/StudentManagementSystem/student/delete?studentId=${tempStudent.id}"
+							<a
+							href="/StudentManagementSystem/student/delete?studentId=${tempStudent.id}"
 							class="btn btn-danger btn-sm"
 							onclick="if (!(confirm('Are you sure you want to delete this Student?'))) return false">
 								Delete </a>
